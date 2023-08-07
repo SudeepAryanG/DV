@@ -7,6 +7,7 @@
 node_modules/
 dist/
 .env/
+env
 __pycache__/
 storage/
 # Compiled Java class files
@@ -65,7 +66,8 @@ dist-ssr
 *.local
 
 # Editor directories and files
-.vscode/*
+.vite
+.vscode
 !.vscode/extensions.json
 .idea
 .DS_Store
