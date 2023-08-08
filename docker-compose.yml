@@ -2,12 +2,12 @@ version: '3'
 services:
   frontend:
     build:
-      context: ./webClient
+      context: ./Client
     ports:
       - "5173:5173"
 
   backend:
     build:
-      context: ./flask_server
+      context: ./server
     ports:
       - "8000:8000"

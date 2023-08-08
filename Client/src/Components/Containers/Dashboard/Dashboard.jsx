@@ -16,6 +16,7 @@ import { UploadOutlined } from "@ant-design/icons";
 import { message } from "antd";
 //ReUsables
 import UploadButton from "../../Reusables/UploadButton/upploadButton";
+import { useNotification } from "../../../Components/Reusables/Notification/Notification";
 //Redux
 import { rootSelector } from "../../../Redux/Root/rootSelector";
 import { rootQuery } from "../../../Redux/Root/rootQuery";
@@ -23,8 +24,11 @@ import { rootQuery } from "../../../Redux/Root/rootQuery";
 const Dashboard = () => {
   const navigate = useNavigate();
   const projectId = useSelector(rootSelector.Project.projectData.projectId);
+  const error = useSelector(rootSelector.Project.projectData.error);
+
   //Making the upload button diable and enable
   const [disable, setDisable] = useState(false);
+  const notification = useNotification();
 
   //POST Req RTK Query to send the uploaded csv
   const [sendExcelCSV, resultCsv] =
@@ -50,14 +54,15 @@ const Dashboard = () => {
       //sending POST Request
       const res = await sendExcelCSV(formData);
       //sending GET Request based on condition
-      if (res.data.error === null) await getExcel(res.data.projectId);
+      if (res.data.error === null && error === null)
+        await getExcel(res.data.projectId);
       else {
         setDisable((prev) => !prev);
-        onError(message.error("Error Uploading File"));
+        onError(notification.openNotification("Error", error, "error"));
       }
     } catch (error) {
       setDisable((prev) => !prev);
-      onError(message.error("Error Uploading File"));
+      onError(notification.openNotification("Error", error, "error"));
     }
   };
 
