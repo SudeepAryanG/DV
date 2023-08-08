@@ -7,7 +7,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom/client";
-
+import { Notification } from "./Components/Reusables/Notification/Notification";
 import { Provider } from "react-redux";
 import "./Styles/style.css";
 import { store } from "./Redux/store.jsx";
@@ -15,6 +15,8 @@ import App from "./Pages/App/app";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <App />
+    <Notification>
+      <App />
+    </Notification>
   </Provider>
 );

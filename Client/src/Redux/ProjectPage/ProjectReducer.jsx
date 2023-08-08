@@ -27,8 +27,11 @@ const ExcelSlice = createSlice({
       state.ProjectId = action.payload.projectId;
       state.Error = action.payload.error;
     },
+    storeError: (state, action) => {
+      state.Error = action.payload;
+    },
   },
 });
 
-export const { storeExcelCsv, storeExcelid } = ExcelSlice.actions;
+export const { storeExcelCsv, storeExcelid, storeError } = ExcelSlice.actions;
 export default ExcelSlice.reducer;
