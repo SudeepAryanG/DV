@@ -23,8 +23,11 @@ jobs:
       run: pwd
     - name: List files in Client directory
       run: ls
-    - name: Install dependencies
-      run: yarn
+    - name: Install dependencies and Playwright
+      run: |
+        yarn install  # Install project dependencies
+        yarn install --production=false  # Install devDependencies, including Playwright
+      working-directory: ./Client    
     - name: Clear Playwright cache
       run: yarn playwright clear-cache
       working-directory: ./Client
