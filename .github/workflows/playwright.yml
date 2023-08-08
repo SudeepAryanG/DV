@@ -15,8 +15,12 @@ jobs:
         node-version: 18
     - name: List files in current directory
       run: ls
+    - name: pwd
+      run: pwd
     - name: Navigate to project directory
       run : cd ./Client
+    - name: pwd
+      run: pwd
     - name: List files in Client directory
       run: ls
     - name: Install dependencies
