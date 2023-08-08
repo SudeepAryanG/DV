@@ -17,6 +17,8 @@ jobs:
       run : cd Client
     - name: Install dependencies
       run: yarn
+    - name: Clear Playwright cache
+      run: yarn playwright clear-cache
     - name: Install Playwright Browsers
       run: yarn playwright install --with-deps
     - name: Run Playwright tests
