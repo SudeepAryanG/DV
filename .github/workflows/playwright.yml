@@ -13,24 +13,11 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 18
-    - name: List files in current directory
-      run: ls
-    - name: pwd
-      run: pwd
-    - name: Navigate to project directory
-      run : cd ./Client
-    - name: pwd
-      run: pwd
-    - name: List files in Client directory
-      run: ls
     - name: Install dependencies and Playwright
       run: |
         yarn install  # Install project dependencies
         yarn install --production=false  # Install devDependencies, including Playwright
       working-directory: ./Client    
-    - name: Clear Playwright cache
-      run: yarn playwright clear-cache
-      working-directory: ./Client
     - name: Install Playwright Browsers
       run: yarn playwright install --with-deps
       working-directory: ./Client
