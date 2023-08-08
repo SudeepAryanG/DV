@@ -15,6 +15,8 @@ jobs:
         node-version: 18
     - name: Navigate to project directory
       run : cd Client
+    - name: List files in Client directory
+      run: ls
     - name: Install dependencies
       run: yarn
     - name: Clear Playwright cache
