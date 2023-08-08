@@ -13,8 +13,10 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 18
+    - name: List files in current directory
+      run: ls
     - name: Navigate to project directory
-      run : cd ./Client
+      run : cd /Client
     - name: List files in Client directory
       run: ls
     - name: Install dependencies
