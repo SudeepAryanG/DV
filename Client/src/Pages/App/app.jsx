@@ -12,7 +12,7 @@ import DashboardPage from "../Dashboard_page/dashboardPage";
 import Project from "../Project/project";
 //Imports form Reusables
 import Navbar from "../../Components/Reusables/Navbar/Navbar";
-
+//SMall change
 const App = () => {
   return (
     <div>
