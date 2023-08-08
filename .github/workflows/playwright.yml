@@ -27,10 +27,13 @@ jobs:
       run: yarn
     - name: Clear Playwright cache
       run: yarn playwright clear-cache
+      working-directory: ./Client
     - name: Install Playwright Browsers
       run: yarn playwright install --with-deps
+      working-directory: ./Client
     - name: Run Playwright tests
       run: yarn playwright test
+      working-directory: ./Client
     - uses: actions/upload-artifact@v3
       if: always()
       with:
