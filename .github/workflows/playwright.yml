@@ -16,7 +16,7 @@ jobs:
     - name: List files in current directory
       run: ls
     - name: Navigate to project directory
-      run : cd /Client
+      run : cd ./Client
     - name: List files in Client directory
       run: ls
     - name: Install dependencies
